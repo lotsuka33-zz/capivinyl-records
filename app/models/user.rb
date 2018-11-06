@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :vinyls
   has_many :transactions
+  has_many :lendings, through: :vinyls, class_name: 'Transaction', source: :transactions
 end
