@@ -8,7 +8,11 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.user = current_user
-    @transaction.save
+    if @transaction.save
+      redirect_to user_vinyl_transaction_path(@transaction.id)
+    else
+      render :new
+    end
   end
 
   def index
@@ -31,7 +35,11 @@ class TransactionsController < ApplicationController
   end
 
   def destroy
+    user_id = @transaction.vinyl.user.id
+    vinyl_id = @transaction.vinyl.id
     @transaction.destroy
+    # @dose.destroy
+    redirect_to user_vinyl_transactions_path(cocktail_id)
   end
 
   private
