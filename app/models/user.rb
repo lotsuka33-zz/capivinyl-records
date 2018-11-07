@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :vinyls
-  has_many :transactions
-  has_many :lendings, through: :vinyls, class_name: 'Transaction', source: :transactions
+  has_many :rentals
+  has_many :lendings, through: :vinyls, class_name: 'Rental', source: :rentals
 end
