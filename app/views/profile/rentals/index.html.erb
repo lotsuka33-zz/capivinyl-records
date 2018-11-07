@@ -1,5 +1,6 @@
-<h1>Profile::Rentals#index</h1>
-<p>Find me in app/views/profile/rentals/index.html.erb</p>
-<% @rentals.each do |rental| %>
-  <p><%= rental.vinyl.album %></p>
-<% end %>
+<h1>Lent vinyls</h1>
+<ul>
+  <% @rentals.each do |rental| %>
+    <li>Album: <%= rental.vinyl.album %> | Artist: <%= rental.vinyl.artist %></li>
+  <% end %>
+</ul>

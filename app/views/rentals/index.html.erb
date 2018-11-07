@@ -1,5 +1,7 @@
 <h1>Borrowed vinyls</h1>
-<p>Find me in app/views/profile/rentals/index.html.erb</p>
-<% @rentals.each do |rental| %>
-  <p><%= rental.vinyl %></p>
-<% end %>
+<!-- <p><%= current_user.id %></p> -->
+  <ul>
+    <% @rentals.each do |rental| %>
+      <li>Album:<%= rental.vinyl.album %> | Artist:<%= rental.vinyl.artist %></li>
+    <% end %>
+  </ul>

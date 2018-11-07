@@ -13,10 +13,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "My Vinyls", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Publish Vinyl", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Borrowed Vinyls", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
+      <%= link_to "Rent vinyls!", "/catalog", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Vinyls", "/vinyls", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Publish Vinyl", "/vinyls/new", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Borrowed Vinyls", "/rentals", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Lent Vinyls", "/profile/rentals", class: "navbar-wagon-item navbar-wagon-link" %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
