@@ -9,9 +9,9 @@ class VinylsController < ApplicationController
   #   @vinyls = policy_scope(Vinyl)
   #   end
   end
+
 # geral
   def show
-
   end
 
   def new
@@ -32,7 +32,6 @@ class VinylsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
