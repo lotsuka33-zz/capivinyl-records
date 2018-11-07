@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_202309) do
+ActiveRecord::Schema.define(version: 2018_11_07_180340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "rentals", force: :cascade do |t|
+  create_table "transactions", force: :cascade do |t|
     t.bigint "vinyl_id"
     t.bigint "user_id"
     t.date "start_date"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2018_11_05_202309) do
     t.integer "borrower_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_rentals_on_user_id"
-    t.index ["vinyl_id"], name: "index_rentals_on_vinyl_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.index ["vinyl_id"], name: "index_transactions_on_vinyl_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,10 +51,11 @@ ActiveRecord::Schema.define(version: 2018_11_05_202309) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picture"
     t.index ["user_id"], name: "index_vinyls_on_user_id"
   end
 
-  add_foreign_key "rentals", "users"
-  add_foreign_key "rentals", "vinyls"
+  add_foreign_key "transactions", "users"
+  add_foreign_key "transactions", "vinyls"
   add_foreign_key "vinyls", "users"
 end

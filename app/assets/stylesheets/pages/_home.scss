@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 
-.covers {
+.cover {
   width: 400px;
   padding: 10px;
 }
@@ -12,12 +12,21 @@ h3 {
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
 }
 
-h5 {
+.card {
   text-align: center;
-  padding-bottom: 40px;
+}
+
+a {
+  color: black;
+  font-weight: bold;
+}
+
+a:hover {
+  font-weight: bold;
+  text-decoration: none;
+  color: #DF7A44;
 }
