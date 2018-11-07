@@ -1,4 +1,4 @@
-class Transaction < ApplicationRecord
+class Rental < ApplicationRecord
   belongs_to :vinyl
   belongs_to :user
   has_one :owner, through: :vinyl, class_name: 'User', source: :user
