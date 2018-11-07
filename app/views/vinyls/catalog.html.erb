@@ -1,1 +1,8 @@
-catalog.html.erb
+<div class="wrapper">
+  <% @vinyls.each do |vinyl| %>
+    <div class="card">
+      <img src="<%= vinyl.picture %>" class="cover">
+      <%= link_to vinyl.album, vinyl_path(vinyl) %>
+    </div>
+  <% end %>
+</div>
