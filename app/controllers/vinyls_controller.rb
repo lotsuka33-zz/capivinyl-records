@@ -16,6 +16,7 @@ class VinylsController < ApplicationController
 
   def new
     @vinyl = Vinyl.new
+    @vinyl.user = current_user
     # authorize @vinyl
   end
 
@@ -25,7 +26,7 @@ class VinylsController < ApplicationController
     # authorize @vinyl
 
     if @vinyl.save
-      redirect_to vinyls_path(@vinyl), notice: 'Vinyl successfully created!'
+      redirect_to vinyl_path(@vinyl), notice: 'Vinyl successfully created!'
     else
       render :new
     end

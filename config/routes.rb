@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
-    resources :vinyls, only: [:new, :create, :edit, :update, :index] do
+    resources :vinyls, only: [:index] do
       resources :transactions, only: [:new, :create, :show, :index] do
         collection do
         # :lent, :borrowed, :pending,                        # collection => no restaurant id in URL
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :vinyls, only: [:destroy, :show, :index] do
+  resources :vinyls, only: [:destroy, :show, :index, :new, :create, :edit, :update] do
     resources :transactions, only: [:destroy]
   end
 end
