@@ -6,7 +6,7 @@ class RentalsController < ApplicationController
   end
 
   def create
-    @rental = Rentatl.new(rental_params)
+    @rental = Rental.new(rental_params)
     @rental.user = current_user
     if @rental.save
       redirect_to user_vinyl_rental_path(@rental.id)

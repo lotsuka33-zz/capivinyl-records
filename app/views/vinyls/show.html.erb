@@ -4,37 +4,26 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="vinyl-cover">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_url 'ChetBakerIn Milan1959.jpg' %>);">
-          <%= link_to('' ,@cocktail.post_url, class: "card-link")%>
-        </div>
+        <%= image_tag("heat1982.png", size: "345x300") %>
+        <!-- <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.com/photos/UMfXD8XZ_KA');">
+        </div> -->
       </div>
     </div>
   <div class="col-xs-12 col-sm-6">
     <div class="vinyl-info">
-      <h2><%= @vinyl.album %></h2>
-      <h2><%= @vinyl.artist %></h2>
-      <h2><%= @vinyl.year %></h2>
-      <h2><%= @vinyl.genre %></h2>
-      <h2><%= @vinyl.description %></h2>
-      <ul>
-        <% @doses.each do |dose| %>
-          <li>
-            <%= dose.description %> of <%= Ingredient.find(dose.ingredient_id).name %>
-          </li>
-        <%end%>
-      </ul>
+      <p><%= @vinyl.album %></p>
+      <p><%= @vinyl.artist %></p>p
+      <p><%= @vinyl.year %></p>
+      <p><%= @vinyl.genre %></p>
+      <p><%= @vinyl.description %></p>
     </div>
   </div>
-
-  </div>
 </div>
-
 
 <div class="container">
   <div class="row">
-    <p><%= link_to 'Add a Dose', new_cocktail_dose_path(@cocktail.id)%></p>
+    <p><%= link_to 'Add a Vinyl', new_vinyl_path %></p>
     <p><%= link_to 'Back', root_path %></p>
+    <p><%= link_to 'Borrow', new_vinyl_rental_path(@vinyl) %></p>
   </div>
 </div>
-
-<%= link_to @vinyl.album, vinyl_path(@vinyl) %>
