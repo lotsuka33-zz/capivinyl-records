@@ -1,5 +1,4 @@
 <% @vinyls.each do |vinyl| %>
-  <ul>
-    <li><%= link_to vinyl.album, vinyl_path(vinyl) %></li>
-  </ul>
+  <div class="card"><%= link_to vinyl.album, vinyl_path(vinyl) %>
+  </div>
 <% end %>
