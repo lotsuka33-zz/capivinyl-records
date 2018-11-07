@@ -1,4 +1,10 @@
-  <%= simple_form_for [@user, @vinyl] do |f| %>
+  <%= simple_form_for [@vinyl] do |f| %>
+  <%= f.input :artist %>
+  <%= f.input :album %>
+  <%= f.input :year %>
+  <%= f.input :genre %>
   <%= f.input :description %>
+
+
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
