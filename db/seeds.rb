@@ -41,6 +41,7 @@ puts 'Creating 10 fake vinyls for Boris (user_id #2)...'
     year: rand(1950..2018),
     genre: Faker::Music.genre,
     description: Faker::Lorem.paragraph_by_chars,
+    available: true,
     picture: "https://picsum.photos/#{rand(300..800)}"
   )
   vinyl.save!
