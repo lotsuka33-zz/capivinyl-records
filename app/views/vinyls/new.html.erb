@@ -1,10 +1,13 @@
-<h1>New Vinyl</h1>
-
-<% if @vinyl.errors.any? %>
-<p>You have the following errors:</p>
-  <%= @vinyl.errors.messages %>
-<% end %>
-
-<%= render 'form', vinyl: @vinyl %>
-
-<%= link_to 'Back', vinyls_path %>
+<div class="container">
+  <h1>Publish a New Vinyl</h1>
+  <br>
+  <% if @vinyl.errors.any? %>
+    <p>You have the following errors:</p>
+    <%= @vinyl.errors.messages %>
+  <% end %>
+  <div class="form col-xs-6 col-xs-offset-3">
+    <%= render 'form', vinyl: @vinyl %>
+    <br>
+    <button class="btn btn-info"><%= link_to 'Back', vinyls_path %></button>
+  </div>
+</div>

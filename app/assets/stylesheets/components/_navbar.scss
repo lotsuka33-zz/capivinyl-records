@@ -40,6 +40,13 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  font-weight: 500;
+}
+
+.navbar-wagon-item:hover {
+  cursor: pointer;
+  padding: 0 20px;
+  font-weight: 500;
 }
 
 /* Navbar link */
@@ -55,13 +62,13 @@
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
-  // box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  // color: #999999 !important;
+  font-weight: 300;
+  color: #999999 !important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
@@ -93,4 +100,12 @@
 .btn-default:hover {
   background-color: transparent;
   color: grey;
+
+.navbar-wagon-left h4 {
+  padding-left: 5px;
+}
+
+h4 {
+  font-family: Helvetica;
+  font-weight: lighter;
 }
