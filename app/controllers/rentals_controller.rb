@@ -10,8 +10,10 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.vinyl = @vinyl
     @rental.user = current_user
-    available_vinyl
+
+    check_available_dates
     if @rental.save
+      @rental.vinyl.available = false
       redirect_to rentals_path
     else
       render :new
@@ -44,15 +46,30 @@ class RentalsController < ApplicationController
     params.require(:rental).permit(:user_id, :vinyl_id, :start_date, :end_date)
   end
 
-  def available_vinyl
-    if @rental.start_date <= Date.today
-      @vinyl.available == false
+  def check_available_dates
+    if @rental.start_date < Date.today
+      @dates_message = "Please choose a valid starting date"
+      return @rental.user = nil
+    end
+
+    rentals = Rental.where(vinyl: @vinyl)
+    if  rentals.where(start_date: (@rental.start_date)..(@rental.end_date)).empty? == false ||
+        rentals.where(end_date: (@rental.start_date)..(@rental.end_date)).empty? == false ||
+        rentals.where("end_date < ? AND start_date > ?", @rental.end_date, @rental.start_date).empty? == false ||
+        rentals.where("end_date > ? AND start_date < ?", @rental.end_date, @rental.start_date).empty? == false
+      @rental.user = nil
+      ranges = []
+      rentals.each do |rental|
+        ranges << "#{rental.start_date} ~ #{rental.end_date}"
+      end
+      @dates_message = "So sorry! The vinyl is unavailable from #{ranges.join(', ')}"
     end
   end
+end
+
   # def all_transactions
   #   @transactions = Transaction.all
   # end
-end
 
   # def pending
   #   # @transactions = Transaction.where()
