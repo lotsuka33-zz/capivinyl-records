@@ -10,6 +10,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.vinyl = @vinyl
     @rental.user = current_user
+    available_vinyl
     if @rental.save
       redirect_to rentals_path
     else
@@ -41,7 +42,12 @@ class RentalsController < ApplicationController
 
   def rental_params
     params.require(:rental).permit(:user_id, :vinyl_id, :start_date, :end_date)
+  end
 
+  def available_vinyl
+    if @rental.start_date <= Date.today
+      @vinyl.available == false
+    end
   end
   # def all_transactions
   #   @transactions = Transaction.all
