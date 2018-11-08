@@ -11,8 +11,14 @@
     <p><strong>Description:</strong> <%= @vinyl.description %></p>
   </div>
 
-  <div class="row">
-    <button class="btn btn-success"><%= link_to 'Borrow', new_vinyl_rental_path(@vinyl) %></button>
+
+
+
+
+<div class="row">
+  <%= link_to new_vinyl_rental_path(@vinyl) do %>
+    <button class="btn btn-success">Borrow</button>
+  <% end %>
     <button class="btn btn-danger"><%= link_to 'Back', root_path %></button>
   </div>
 </div>
