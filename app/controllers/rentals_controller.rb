@@ -10,7 +10,10 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.vinyl = @vinyl
     @rental.user = current_user
+    check_available_dates
+    # raise
     if @rental.save
+      @rental.vinyl.available = false
       redirect_to rentals_path
     else
       render :new
@@ -43,10 +46,21 @@ class RentalsController < ApplicationController
     params.require(:rental).permit(:user_id, :vinyl_id, :start_date, :end_date)
 
   end
+
+  def check_available_dates
+    return @rental.user = nil if @rental.start_date < Date.today
+    rentals = Rental.where(vinyl: @vinyl)
+    if  rentals.where(start_date: (@rental.start_date)..(@rental.end_date)).empty? == false ||
+        rentals.where(end_date: (@rental.start_date)..(@rental.end_date)).empty? == false ||
+        rentals.where("end_date < ? AND start_date > ?", @rental.end_date, @rental.start_date).empty? == false
+      @rental.user = nil
+    end
+  end
+end
+
   # def all_transactions
   #   @transactions = Transaction.all
   # end
-end
 
   # def pending
   #   # @transactions = Transaction.where()
