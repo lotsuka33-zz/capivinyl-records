@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # resources :vinyls, only: [:destroy, :show, :index, :new, :create, :edit, :update] do
   #   resources :transactions, only: [:destroy]
   # end
-
+  get '/catalog', to: 'vinyls#catalog'
   resources :vinyls do
     resources :rentals, only: [:new, :create]
   end
