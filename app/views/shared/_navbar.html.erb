@@ -13,7 +13,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Rent vinyls!", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Rent vinyls!", "/catalog", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My Vinyls", "/vinyls", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Publish Vinyl", "/vinyls/new", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Borrowed Vinyls", "/rentals", class: "navbar-wagon-item navbar-wagon-link" %>

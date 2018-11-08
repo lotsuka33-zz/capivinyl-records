@@ -2,12 +2,11 @@ class VinylsController < ApplicationController
   before_action :set_vinyl, only: [:show, :edit, :update, :destroy]
 
   def index
-    @vinyls = Vinyl.all
-  #   if policy_scope(Vinyl).nil?
-  #     @vinyls = []
-  #   else
-  #   @vinyls = policy_scope(Vinyl)
-  #   end
+    @vinyls = Vinyl.where(user: current_user)
+  end
+
+  def catalog
+    @vinyls = Vinyl.where.not(user: current_user)
   end
 
 # geral
