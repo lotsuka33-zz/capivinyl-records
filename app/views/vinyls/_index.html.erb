@@ -1,8 +1,12 @@
 <div class="wrapper">
   <% @vinyls.each do |vinyl| %>
     <div class="card">
-      <img src="<%= vinyl.picture %>" class="cover">
-      <%= link_to vinyl.album, vinyl_path(vinyl) %>
+<!--       <img src="<%= vinyl.picture %>" class="cover" style="width: 400; height: 400">
+ -->  <%= link_to vinyl_path(vinyl) do %>
+        <img src="<%= vinyl.picture %>" class="cover" style="width: 400; height: 400">
+        <br>
+        <%= vinyl.album %>
+      <% end %>
     </div>
   <% end %>
 </div>
