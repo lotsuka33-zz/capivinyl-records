@@ -4,6 +4,8 @@
   <%= simple_form_for [@vinyl, @rental] do |f| %>
     <%= f.input :start_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
     <%= f.input :end_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+    <%= @dates_message %>
+    <br>
     <%= f.button :submit %>
   <% end %>
 </div>

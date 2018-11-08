@@ -48,12 +48,22 @@ class RentalsController < ApplicationController
   end
 
   def check_available_dates
-    return @rental.user = nil if @rental.start_date < Date.today
+    if @rental.start_date < Date.today
+      @dates_message = "Please choose a valid starting date"
+      return @rental.user = nil
+    end
+
     rentals = Rental.where(vinyl: @vinyl)
     if  rentals.where(start_date: (@rental.start_date)..(@rental.end_date)).empty? == false ||
         rentals.where(end_date: (@rental.start_date)..(@rental.end_date)).empty? == false ||
-        rentals.where("end_date < ? AND start_date > ?", @rental.end_date, @rental.start_date).empty? == false
+        rentals.where("end_date < ? AND start_date > ?", @rental.end_date, @rental.start_date).empty? == false ||
+        rentals.where("end_date > ? AND start_date < ?", @rental.end_date, @rental.start_date).empty? == false
       @rental.user = nil
+      ranges = []
+      rentals.each do |rental|
+        ranges << "#{rental.start_date} ~ #{rental.end_date}"
+      end
+      @dates_message = "So sorry! The vinyl is unavailable from #{ranges.join(', ')}"
     end
   end
 end
