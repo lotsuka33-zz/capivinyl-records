@@ -16,9 +16,13 @@
 
 
 <div class="row">
-  <%= link_to new_vinyl_rental_path(@vinyl) do %>
-    <button class="btn btn-success">Borrow</button>
+  <% if @vinyl.user == current_user %>
+      <div></div>
+  <% else %>
+    <%= link_to new_vinyl_rental_path(@vinyl) do %>
+        <button class="btn btn-primary">Borrow</button>
+    <% end %>
   <% end %>
-    <button class="btn btn-danger"><%= link_to 'Back', root_path %></button>
+    <button class="btn btn-info"><%= link_to 'Back', request.referrer %></button>
   </div>
 </div>
