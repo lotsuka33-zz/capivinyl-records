@@ -9,15 +9,28 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
+  <!-- Links when logged in -->
     <% if user_signed_in? %>
-
-      <!-- Links when logged in -->
-      <%= link_to "Rent vinyls!", "/catalog", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Vinyls", "/vinyls", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Publish Vinyl", "/vinyls/new", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Borrowed Vinyls", "/rentals", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Lent Vinyls", "/profile/rentals", class: "navbar-wagon-item navbar-wagon-link" %>
+  <!-- dropdown -->
+      <div class="dropdown navbar-custom-item">
+        <button class="btn btn-default dropdown-toggle navbar-custom-item" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          My Vinyls
+        </button>
+        <ul class="dropdown-menu text-center navbar-wagon-dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><%= link_to "My Discography", "/vinyls", class: "navbar-wagon-item navbar-wagon-link text-center" %></li>
+          <li><%= link_to "Add", "/vinyls/new", class: "navbar-wagon-item navbar-wagon-link text-center" %></li>
+          <li><%= link_to "Lent", "/profile/rentals", class: "navbar-wagon-item navbar-wagon-link text-center" %></li>
+        </ul>
+      </div>
+      <div class="dropdown navbar-custom-item">
+        <button class="btn btn-default dropdown-toggle navbar-custom-item" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Community's Vinyls
+        </button>
+        <ul class="dropdown-menu text-center navbar-wagon-dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><%= link_to "Borrow Vinyl", "/catalog", class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><%= link_to "Vinyls with Me", "/rentals", class: "navbar-wagon-item navbar-wagon-link" %></li>
+        </ul>
+      </div>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -42,7 +55,7 @@
         </div>
       </div>
     <% else %>
-      <!-- Login link (when logged out) -->
+<!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
