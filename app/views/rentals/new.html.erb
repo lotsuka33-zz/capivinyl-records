@@ -1,11 +1,14 @@
 <div class="container">
   <h1>Confirm your rental</h1>
-
-  <%= simple_form_for [@vinyl, @rental] do |f| %>
-    <%= f.input :start_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
-    <%= f.input :end_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
-    <%= @dates_message %>
-    <br>
-    <%= f.button :submit %>
-  <% end %>
+  <br>
+  <div class="form col-xs-4 col-xs-offset-4">
+    <%= simple_form_for [@vinyl, @rental] do |f| %>
+      <%= f.input :start_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+      <%= f.input :end_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+      <%= @dates_message %>
+      <br>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
+<br>

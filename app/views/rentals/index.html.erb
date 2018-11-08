@@ -6,6 +6,7 @@
       User: <%= (rental.vinyl.user.email).split("@").first %>
       | Start date: <%= rental.start_date %>
       | End date: <%= rental.end_date %>
+      | Availability: <%= rental.vinyl.available %>
       </li>
     <% end %>
   </ul>
