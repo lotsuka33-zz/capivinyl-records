@@ -1,0 +1,13 @@
+<h1>Hi!</h1>
+
+<%= link_to vinyl_rentals_path, method: :post do %>
+    <button class="btn btn-success">Confirm</button>
+  <% end %>
+
+
+
+<%= simple_form_for [@vinyl, @rental] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit %>
+<% end %>

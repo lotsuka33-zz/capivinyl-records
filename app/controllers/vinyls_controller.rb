@@ -12,6 +12,7 @@ class VinylsController < ApplicationController
 
 # geral
   def show
+    @rental = Rental.new
   end
 
   def new
