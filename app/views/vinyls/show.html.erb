@@ -15,14 +15,18 @@
 
 
 
-<div class="row">
-  <% if @vinyl.user == current_user %>
-      <div></div>
-  <% else %>
-    <%= link_to new_vinyl_rental_path(@vinyl) do %>
-        <button class="btn btn-primary">Borrow</button>
+  <div class="row">
+    <% if @vinyl.user == current_user %>
+      <%= link_to edit_vinyl_path do %>
+        <button class="btn btn-default">Edit</button>
     <% end %>
-  <% end %>
-    <button class="btn btn-info"><%= link_to 'Back', request.referrer %></button>
+    <% else %>
+      <%= link_to new_vinyl_rental_path(@vinyl) do %>
+        <button class="btn btn-primary">Borrow</button>
+      <% end %>
+    <% end %>
+    <%= link_to request.referrer do %>
+      <button class="btn btn-info">Back</button>
+    <% end %>
   </div>
 </div>
