@@ -1,0 +1,10 @@
+<h1>Edit Vinyl Info</h1>
+
+<% if @vinyl.errors.any? %>
+<p>You have the following errors:</p>
+  <%= @vinyl.errors.messages %>
+<% end %>
+
+<%= render 'form', vinyl: @vinyl %>
+
+<%= link_to 'Back', vinyls_path %>
