@@ -1,13 +1,9 @@
-<h1>Hi!</h1>
+<div class="container">
+  <h1>Confirm your rental</h1>
 
-<%= link_to vinyl_rentals_path, method: :post do %>
-    <button class="btn btn-success">Confirm</button>
+  <%= simple_form_for [@vinyl, @rental] do |f| %>
+    <%= f.input :start_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+    <%= f.input :end_date, as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+    <%= f.button :submit %>
   <% end %>
-
-
-
-<%= simple_form_for [@vinyl, @rental] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.button :submit %>
-<% end %>
+</div>
