@@ -40,7 +40,7 @@ class RentalsController < ApplicationController
   end
 
   def rental_params
-    params.require(:rental).permit(:user_id, :vinyl_id)
+    params.require(:rental).permit(:user_id, :vinyl_id, :start_date, :end_date)
 
   end
   # def all_transactions
