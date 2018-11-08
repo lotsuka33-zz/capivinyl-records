@@ -2,6 +2,11 @@
 <!-- <p><%= current_user.id %></p> -->
   <ul>
     <% @rentals.each do |rental| %>
-      <li>Album:<%= rental.vinyl.album %> | Artist:<%= rental.vinyl.artist %></li>
+      <li>Album:<%= rental.vinyl.album %> | Artist:<%= rental.vinyl.artist %>
+      User: <%= (rental.vinyl.user.email).split("@").first %>
+      | Start date: <%= rental.start_date %>
+      | End date: <%= rental.end_date %>
+      | Availability: <%= rental.vinyl.available %>
+      </li>
     <% end %>
   </ul>
