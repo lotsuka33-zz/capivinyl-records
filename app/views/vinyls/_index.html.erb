@@ -3,9 +3,9 @@
     <div class="card">
 <!--       <img src="<%= vinyl.picture %>" class="cover" style="width: 400; height: 400">
  -->  <%= link_to vinyl_path(vinyl) do %>
-        <img src="<%= vinyl.picture %>" class="cover" style="width: 400; height: 400">
+        <img src="<%= vinyl.picture %>" class="cover">
         <br>
-        <%= vinyl.album %>
+        <h5><%= vinyl.artist %> ― <%= vinyl.album %> (<%= vinyl.year %>)</h5>
       <% end %>
     </div>
   <% end %>
