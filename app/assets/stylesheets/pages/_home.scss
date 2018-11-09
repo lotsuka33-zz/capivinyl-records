@@ -1,20 +1,20 @@
 // Specific CSS for your home-page
 
-.cover {
-  width: 400px;
-  padding-bottom: 10px;
+.stick-footer {
+  min-height: calc(100vh - 170px);
 }
 
-h3 {
-  text-align: center;
-  padding-bottom: 20px;
+.cover {
+  width: 300px;
+  padding-bottom: 10px;
 }
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
+  padding-left: 10px;
 }
 
 .card {
