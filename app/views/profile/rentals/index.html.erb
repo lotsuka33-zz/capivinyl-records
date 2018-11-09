@@ -2,7 +2,7 @@
   <div class="wrapper">
     <% @rentals.each do |rental| %>
       <div class="borrow">
-        <img src="<%= rental.vinyl.picture %>" class="borrowed_covers">
+        <img src="<%= rental.vinyl.picture %>" class="cover">
         <br>
         <br>
         <strong>Album:</strong> <%= rental.vinyl.album %>
