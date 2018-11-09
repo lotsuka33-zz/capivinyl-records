@@ -1,12 +1,22 @@
-<h1>Borrowed vinyls</h1>
+<h2>Your Borrowed Vinyls</h2>
+<div class="wrapper">
 <!-- <p><%= current_user.id %></p> -->
-  <ul>
     <% @rentals.each do |rental| %>
-      <li>Album:<%= rental.vinyl.album %> | Artist:<%= rental.vinyl.artist %>
-      User: <%= (rental.vinyl.user.email).split("@").first %>
-      | Start date: <%= rental.start_date %>
-      | End date: <%= rental.end_date %>
-      | Availability: <%= rental.vinyl.available %>
-      </li>
+      <div class="borrow">
+        <img src="<%= rental.vinyl.picture %>" class="borrowed_covers">
+        <br>
+        <br>
+        <strong>Album:</strong> <%= rental.vinyl.album %>
+        <br>
+        <strong>Artist:</strong> <%= rental.vinyl.artist %>
+        <br>
+        <strong>User:</strong> <%= (rental.vinyl.user.email).split("@").first %>
+        <br>
+        <strong>Start date:</strong> <%= rental.start_date %>
+        <br>
+        <strong>End date:</strong> <%= rental.end_date %>
+        <br>
+        <br>
+      </div>
     <% end %>
-  </ul>
+</div>
