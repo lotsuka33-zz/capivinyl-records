@@ -6,4 +6,18 @@
 
 <h3>Our available vinyls to borrow:</h3>
 
-<%= render "vinyls/index" %>
+<div class="row col-xs-4 col-xs-offset-4">
+  <%= form_tag vinyls_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a vinyl"
+    %>
+  <% end %>
+</div>
+<br>
+<br>
+<br>
+<div>
+  <%= render "vinyls/index" %>
+</div>
