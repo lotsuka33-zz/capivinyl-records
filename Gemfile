@@ -4,7 +4,6 @@ ruby '2.4.4'
 gem 'devise'
 # gem 'pundit'
 gem 'pg_search'
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
@@ -22,6 +21,9 @@ gem 'webpacker'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
@@ -32,5 +34,4 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'dotenv-rails'
 end
