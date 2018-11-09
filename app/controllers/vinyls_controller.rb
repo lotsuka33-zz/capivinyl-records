@@ -3,6 +3,11 @@ class VinylsController < ApplicationController
 
   def index
     @vinyls = Vinyl.where(user: current_user)
+  if params[:query].present?
+    @vinyls = Vinyl.search_by_album_artist_and_genre(params[:query])
+    else
+      @vinyls = Vinyl.all
+    end
   end
 
   def catalog
