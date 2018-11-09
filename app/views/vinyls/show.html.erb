@@ -15,8 +15,11 @@
     <% if @vinyl.available %>
       <%= link_to new_vinyl_rental_path(@vinyl) do %>
         <button class="btn">Borrow</button>
+      <% end %>
+    <% end %>
+
     <% if @vinyl.user != current_user %>
-      <% if @vinyl.available  %>
+      <% if @vinyl.available %>
         <%= link_to new_vinyl_rental_path(@vinyl) do %>
           <button class="btn btn-primary">Borrow</button>
         <% end %>
@@ -24,6 +27,7 @@
         <p>Not available for now</p>
       <% end %>
     <% end %>
+
     <% if @vinyl.user == current_user %>
       <%= link_to edit_vinyl_path do %>
         <button class="btn btn-default">Edit</button>
