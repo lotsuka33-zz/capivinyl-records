@@ -6,14 +6,15 @@
 
 <h2>All vinyls</h2>
 
-<div class="row col-xs-4 col-xs-offset-4">
-  <%= form_tag vinyls_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a vinyl"
-    %>
-  <% end %>
+<div class="row col-xs-4 col-xs-offset-4" id="search-bar">
+    <%= form_tag vinyls_path, method: :get, :class => "form-inline" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a vinyl"
+      %>
+      <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+    <% end %>
 </div>
 <br>
 <br>
@@ -21,3 +22,14 @@
 <div>
   <%= render "vinyls/index" %>
 </div>
+
+
+<!-- Clear search-bar form after search -->
+<script type="text/javascript>">
+
+$(document).ready(function () {
+
+  $("search-bar").val("");
+
+});
+</script>
