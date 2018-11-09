@@ -4,7 +4,7 @@ ruby '2.4.4'
 gem 'devise'
 # gem 'pundit'
 gem 'pg_search'
-
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
