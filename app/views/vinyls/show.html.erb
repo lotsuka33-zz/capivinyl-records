@@ -12,6 +12,9 @@
   </div>
 
   <div class="row">
+    <% if @vinyl.available %>
+      <%= link_to new_vinyl_rental_path(@vinyl) do %>
+        <button class="btn">Borrow</button>
     <% if @vinyl.user != current_user %>
       <% if @vinyl.available  %>
         <%= link_to new_vinyl_rental_path(@vinyl) do %>

@@ -12,21 +12,21 @@
   <!-- Links when logged in -->
     <% if user_signed_in? %>
   <!-- dropdown -->
-      <div class="dropdown navbar-custom-item">
-        <button class="btn btn-default dropdown-toggle navbar-custom-item" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <div class="dropdown">
+        <a class="dropdown-toggle navbar-custom-item" data-toggle="dropdown">
           My Vinyls
-        </button>
-        <ul class="dropdown-menu text-center navbar-wagon-dropdown-menu" aria-labelledby="dropdownMenu1">
+        </a>
+        <ul class="dropdown-menu text-center navbar-wagon-dropdown-menu">
           <li><%= link_to "My Discography", "/vinyls", class: "navbar-wagon-item navbar-wagon-link text-center" %></li>
           <li><%= link_to "Add", "/vinyls/new", class: "navbar-wagon-item navbar-wagon-link text-center" %></li>
           <li><%= link_to "Lent", "/profile/rentals", class: "navbar-wagon-item navbar-wagon-link text-center" %></li>
         </ul>
       </div>
-      <div class="dropdown navbar-custom-item">
-        <button class="btn btn-default dropdown-toggle navbar-custom-item" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <div class="dropdown">
+        <a class="dropdown-toggle navbar-custom-item" data-toggle="dropdown">
           Community's Vinyls
-        </button>
-        <ul class="dropdown-menu text-center navbar-wagon-dropdown-menu" aria-labelledby="dropdownMenu1">
+        </a>
+        <ul class="dropdown-menu text-center navbar-wagon-dropdown-menu">
           <li><%= link_to "Borrow Vinyl", "/catalog", class: "navbar-wagon-item navbar-wagon-link" %></li>
           <li><%= link_to "Vinyls with Me", "/rentals", class: "navbar-wagon-item navbar-wagon-link" %></li>
         </ul>
