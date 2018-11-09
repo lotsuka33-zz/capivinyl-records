@@ -3,7 +3,7 @@
   <% @vinyls.each do |vinyl| %>
     <div class="card">
       <%= link_to vinyl_path(vinyl) do %>
-        <img src="<%= vinyl.picture %>" class="cover">
+        <img src="<%= vinyl.photo %>" class="cover">
         <br>
         <h5><%= vinyl.artist %> ― <%= vinyl.album %> (<%= vinyl.year %>)</h5>
       <% end %>
