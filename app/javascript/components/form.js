@@ -15,27 +15,40 @@ const api_key = '3e672b014e7ced3c05f793acf81413b2'
 let artist_field = document.getElementById("vinyl_artist");
 let album_field = document.getElementById("vinyl_album");
 
+// artist_field.addEventListener("blur", (event) => {
+//   event.preventDefault();
+//   let artist = document.getElementById("vinyl_artist").value;
+//   // console.log(input)
+// });
+
 artist_field.addEventListener("blur", (event) => {
   event.preventDefault();
   let artist = document.getElementById("vinyl_artist").value;
-  // console.log(input)
+  let url = `http://ws.audioscrobbler.com/2.0/?method=artist.search&api_key=${api_key}&artist=${artist}&format=json&limit=5`
+  fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+      // console.log(data.results.artistmatches)
+      artist_field.value = data.results.artistmatches.artist[0].name
+    });
 });
 
 album_field.addEventListener("blur", (event) => {
   event.preventDefault();
   let artist = document.getElementById("vinyl_artist").value;
   let album = document.getElementById("vinyl_album").value;
-  let url = `http://ws.audioscrobbler.com/2.0/?method=album.getInfo&api_key=${api_key}&artist=${artist}&album=${album}&format=json&autocorrect1`
-  console.log(url)
-  // fetch(url)
-  //   .then(response => response.json())
-  //   .then((data) => {
-  //     const albums = document.getElementById("albums-container");
-  //     albums.innerHTML = "";
-  //     data.topalbums.album.forEach((album) => {
-  //       albums.insertAdjacentHTML("beforeend", row_html(album));
-  //     });
-  //   });
+  let url = `http://ws.audioscrobbler.com/2.0/?method=album.search&api_key=${api_key}&artist=${artist}&album=${album}&format=json&limit=10`
+  fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data.results.albummatches.album)
+      data.results.albummatches.album.forEach ((album) => {
+        if (album.artist === artist) {
+          album_field.value = album.name
+        }
+      });
+      // artist_field.value = data.results.artistmatches.artist[0].name
+    });
 });
 
 
