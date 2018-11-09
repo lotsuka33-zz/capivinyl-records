@@ -1,7 +1,7 @@
 <h1><%= @vinyl.album %></h1>
 <!-- <p id="notice"><%= notice %></p> -->
 <div class="wrapper">
-  <%= cl_image_tag @vinyl.photo, class: 'cover' %>
+  <%= cl_image_tag @vinyl.photo, class: 'cover' if @vinyl.photo.present? %>
 
   <div class="info">
     <p><strong>Album name:</strong> <%= @vinyl.album %></p>
