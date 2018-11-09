@@ -18,6 +18,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'rest-client', '>=2.0.2'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
