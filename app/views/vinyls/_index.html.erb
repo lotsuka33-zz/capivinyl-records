@@ -3,7 +3,7 @@
   <% @vinyls.each do |vinyl| %>
     <div class="card">
       <%= link_to vinyl_path(vinyl) do %>
-        <%= cl_image_tag @vinyl.photo, class: 'cover' if @vinyl.present? %>
+        <img src="<%= vinyl.photo %>" class="cover">
         <br>
         <h5><%= vinyl.artist %> ― <%= vinyl.album %> (<%= vinyl.year %>)</h5>
       <% end %>

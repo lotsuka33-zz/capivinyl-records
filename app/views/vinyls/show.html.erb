@@ -1,4 +1,5 @@
-<h1><%= @vinyl.album %></h1>
+<h2><%= @vinyl.album %></h2>
+<br>
 <!-- <p id="notice"><%= notice %></p> -->
 <div class="wrapper">
   <%= cl_image_tag @vinyl.photo, class: 'cover' if @vinyl.photo.present? %>
@@ -12,11 +13,6 @@
   </div>
 
   <div class="row">
-    <% if @vinyl.available %>
-      <%= link_to new_vinyl_rental_path(@vinyl) do %>
-        <button class="btn">Borrow</button>
-      <% end %>
-    <% end %>
 
     <% if @vinyl.user != current_user %>
       <% if @vinyl.available %>
