@@ -5,7 +5,7 @@
   <%= f.input :genre %>
   <%= f.input :description %>
   <%= f.input :picture %>
-  <%= f.input :available, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.input :available, as: :boolean, input_html: { checked: true } %>
 
 
   <%= f.button :submit, class: "btn btn-primary" %>
