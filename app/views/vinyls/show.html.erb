@@ -11,10 +11,6 @@
     <p><strong>Description:</strong> <%= @vinyl.description %></p>
   </div>
 
-
-
-
-
   <div class="row">
     <% if @vinyl.available %>
       <%= link_to new_vinyl_rental_path(@vinyl) do %>

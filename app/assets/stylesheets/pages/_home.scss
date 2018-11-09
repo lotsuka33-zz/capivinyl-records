@@ -1,5 +1,9 @@
 // Specific CSS for your home-page
 
+.stick-footer {
+  min-height: calc(100vh - 170px);
+}
+
 .cover {
   width: 400px;
   padding-bottom: 10px;
