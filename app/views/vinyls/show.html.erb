@@ -18,7 +18,7 @@
   <div class="row">
     <% if @vinyl.available %>
       <%= link_to new_vinyl_rental_path(@vinyl) do %>
-        <button class="btn btn-primary">Borrow</button>
+        <button class="btn">Borrow</button>
       <% end %>
     <% else %>
       <p>Not available for now</p>
